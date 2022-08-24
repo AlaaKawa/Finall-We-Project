@@ -8,7 +8,8 @@ export const Product = ({ product }) => {
 
     const classes=useStyles();
   return (
-   <Card className={classes.root} >
+ 
+   <Card className={classes.root}  >
     <CardMedia className={classes.media} component="img" image={product.image} title={product.name} />
     <CardContent>
         <div className={classes.cardContent}>
@@ -32,6 +33,7 @@ export const Product = ({ product }) => {
 
         </CardActions>
    </Card>
+   
   )
 }
 

@@ -1,6 +1,8 @@
 import { styled } from '@mui/material';
-import fade from '@mui/material/Fade'
+import fade from '@mui/material/Fade';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 const drawerWidth = 0;
+
 
 
 export default styled((theme) => ({

@@ -1,46 +1,133 @@
-import React from 'react'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
+import { ShoppingCart } from '@mui/icons-material';
+import { Image } from '@mui/icons-material';
+// import logo from '../../assets/flower_logo'
 
-//importing Navbar components
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-import {AppBar, Toolbar, IconButton, Badge, MenuItem, Menu,Typography} from '@mui/material'
+const ResponsiveAppBar = () => {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-import {ShoppingCart} from '@mui/icons-material'
-import { ClassNames } from '@emotion/react'
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
 
-//import flower logo
-import logo from '../../assets/flower_logo.png'
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-//import styles for navbar
-import useStyles from './Styles'
-const Navbar = () => {
-    const classes=useStyles();
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
-    
   return (
-    <>
-    <AppBar position='fixed' className={classes.appBar} color='inherit'>
-        <Toolbar>
-            <Typography variant='h6' className={classes.title} color='inherit'>
-                <img src={logo} alt='Flower Shop' height='25px' className={classes.image} />
-                Flower Shop
-            </Typography>
-            <div className={classes.grow}/>
-            <div className={classes.button}>
-                <IconButton aria-label='show cart items' color='inherit'>
-                    <Badge badgeContent={2} color='secondary'>
-                        
-                        <ShoppingCart/>
+    <AppBar position="static" sx={{backgroundColor:'#e75757'}}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters >
+            <Image src='logo'/>
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+           Flower Shop
+          </Typography>
 
-                    </Badge>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+           
+            </Menu>
+          </Box>
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            Flower Shop
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          
+          </Box>
 
-                </IconButton>
-
-            </div>
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton  sx={{ p: 0 }} color='inherit'>
+              <ShoppingCart/>
+              </IconButton>
+            </Tooltip>
+         
+                
+                
+          </Box>
         </Toolbar>
-
+      </Container>
     </AppBar>
-    </>
-  )
-}
-
-export default Navbar
+  );
+};
+export default ResponsiveAppBar;
