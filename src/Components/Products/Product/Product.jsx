@@ -4,12 +4,12 @@ import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } fro
 import { AddShoppingCart } from '@mui/icons-material';
 
 import useStyles from './styles';
-export const Product = ({product}) => {
+export const Product = ({ product }) => {
 
     const classes=useStyles();
   return (
-   <Card className={classes.root}>
-    <CardMedia className={classes.media} image={''} title={product.name} />
+   <Card className={classes.root} >
+    <CardMedia className={classes.media} component="img" image={product.image} title={product.name} />
     <CardContent>
         <div className={classes.cardContent}>
 
@@ -17,10 +17,10 @@ export const Product = ({product}) => {
                 {product.name}
                    </Typography>
                    <Typography variant="h5">
-                {product.prise}
+                {product.price}
                    </Typography>
         </div>
-        <Typography variant="h2" color="textSecondary" >
+        <Typography variant="body2" color="textSecondary" >
             {product.description}
 
         </Typography>

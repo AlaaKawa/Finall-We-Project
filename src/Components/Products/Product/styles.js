@@ -1,10 +1,6 @@
 
 import { styled } from '@mui/material/styles'
 
-
-
-
-
 export default styled(() => ({
     root: {
         // maxWidth: 345, original width style
@@ -12,7 +8,8 @@ export default styled(() => ({
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%',
+
     },
     cardActions: {
         display: 'flex',

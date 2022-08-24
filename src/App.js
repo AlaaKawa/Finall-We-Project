@@ -1,11 +1,15 @@
-import * as React from 'react';
+import React from 'react';
+import { StrictMode } from 'react';
 
-import Products from './Components/Products/Products.jsx';
+import { Products, Navbar } from './Components'
+
+
 function App() {
   return (
     <div>
+      <Navbar />
       <Products />
-    </div>
+    </div >
   )
 }
 
